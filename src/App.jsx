@@ -6,6 +6,7 @@ import UseState from './aulas/01-useState/UseState'
 import UseEffect from './aulas/02-useEffect/UseEffect'
 import UseRef from './aulas/03-useRef/UseRef'
 import UseContext from './aulas/04-useContext/UseContext'
+import UseContext2 from './aulas/04-useContext/UseContext2'
 import UseReducer from './aulas/05-useReducer/UseReducer'
 import UseMemo from './aulas/06-useMemo/UseMemo'
 import UseCallback from './aulas/07-useCallback/UseCallback'
@@ -37,6 +38,10 @@ function App() {
           useContext
         </button>
 
+        <button onClick={() => setAulaAtual('useContex2')}>
+          useContext2
+        </button>
+
         <button onClick={() => setAulaAtual('useReducer')}>
           useReducer
         </button>
@@ -59,6 +64,7 @@ function App() {
         {aulaAtual === 'useEffect' && <UseEffect />}
         {aulaAtual === 'useRef' && <UseRef />}
         {aulaAtual === 'useContext' && <UseContext />}
+        {aulaAtual === 'useContext2' && <UseContext2 />}
         {aulaAtual === 'useReducer' && <UseReducer />}
         {aulaAtual === 'useMemo' && <UseMemo />}
         {aulaAtual === 'useCallback' && <UseCallback />}
