@@ -1,9 +1,33 @@
-function UseCallback() {
+import { useState, useCallback } from "react";
+
+import List from "./List";
+
+const AppUseCallback = () => {
+  const [text, setText] = useState("");
+  const [resourceType, setResourceType] = useState("posts");
+
+  const getItems = useCallback(async () => {
+    console.log("getItems is being called!");
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/${resourceType}`
+    );
+    const responseJSON = await response.json();
+
+    return responseJSON;
+
+  }, [resourceType])
+
   return (
     <div>
-      {" "}
-      <h1>Aula: useCallback</h1> <p>Minha primeira aula de React Hooks.</p>{" "}
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+
+      <button onClick={() => setResourceType("posts")}>Posts</button>
+      <button onClick={() => setResourceType("comments")}>Comments</button>
+      <button onClick={() => setResourceType("todos")}>Todos</button>
+
+      <List getItems={getItems} />
     </div>
   );
-}
-export default UseCallback;
+};
+
+export default AppUseCallback;
